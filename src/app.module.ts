@@ -14,6 +14,7 @@ import { PromotoraModule } from './modules/promotora/promotora.module';
 import { RevendedorModule } from './modules/revendedor/revendedor.module';
 import { ClienteModule } from './modules/cliente/cliente.module';
 import { SaleModule } from './modules/sale/sale.module';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { SaleModule } from './modules/sale/sale.module';
     RevendedorModule,
     ClienteModule,
     SaleModule,
+    HealthModule,
   ],
 })
 export class AppModule {}
