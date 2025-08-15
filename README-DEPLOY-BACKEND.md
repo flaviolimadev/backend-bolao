@@ -49,7 +49,7 @@ Este documento contém todas as instruções necessárias para fazer o deploy do
 ### Passo 3: Configuração do Build
 1. **Build Pack**: `Dockerfile`
 2. **Dockerfile Path**: `backend/Dockerfile`
-3. **Port**: `3000`
+3. **Port**: `3003`
 4. **Health Check Path**: `/health`
 
 ### Passo 4: Variáveis de Ambiente
@@ -74,8 +74,8 @@ RESEND_API_KEY=sua_resend_api_key
 ## 🔧 Configurações Importantes
 
 ### Porta
-- **Backend**: 3000 (conforme solicitado)
-- **Desenvolvimento**: 3001
+- **Backend**: 3003 (conforme solicitado)
+- **Desenvolvimento**: 3004
 
 ### Health Check
 - Endpoint: `/health`
@@ -118,17 +118,17 @@ docker-compose --profile dev up backend-dev
 - **PostgreSQL**: Logs do banco de dados
 
 ### Health Check
-- Endpoint: `http://localhost:3000/health`
+- Endpoint: `http://localhost:3003/health`
 - Resposta esperada: `healthy`
 
 ### Métricas
-- Porta 3000 exposta
+- Porta 3003 exposta
 - Headers de segurança configurados
 - Usuário não-root para segurança
 
 ## 🚨 Troubleshooting
 
-### Problema: Porta 3000 não acessível
+### Problema: Porta 3003 não acessível
 **Solução**: Verifique se a porta está sendo exposta corretamente no Dockerfile
 
 ### Problema: Build falha
@@ -187,7 +187,7 @@ Para dúvidas ou problemas:
 ### Configuração do Frontend
 No frontend, configure a variável:
 ```bash
-VITE_API_URL=http://seu-backend:3000
+VITE_API_URL=http://seu-backend:3003
 ```
 
 ### CORS
@@ -195,5 +195,5 @@ O backend já está configurado para aceitar requisições do frontend.
 
 ---
 
-**🎉 Deploy do backend configurado e pronto para uso na porta 3000!**
+**🎉 Deploy do backend configurado e pronto para uso na porta 3003!**
 

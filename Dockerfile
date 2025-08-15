@@ -53,12 +53,12 @@ RUN chown -R nestjs:nodejs /app
 # Mudar para usuário não-root
 USER nestjs
 
-# Expor porta 3000
-EXPOSE 3000
+# Expor porta 3003
+EXPOSE 3003
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://127.0.0.1:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })" || exit 1
+  CMD node -e "require('http').get('http://127.0.0.1:3003/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })" || exit 1
 
 # Comando para iniciar a aplicação
 CMD ["dumb-init", "node", "dist/main"]

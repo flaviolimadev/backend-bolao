@@ -17,8 +17,8 @@ RUN npm ci
 # Copiar código fonte
 COPY . .
 
-# Expor porta 3000
-EXPOSE 3000
+# Expor porta 3003
+EXPOSE 3003
 
 # Comando para iniciar em modo desenvolvimento
 CMD ["npm", "run", "start:dev"]
