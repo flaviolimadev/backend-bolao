@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Cartela Individual</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #007bff;
+            margin: 0;
+            font-size: 28px;
+        }
+        .card-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .card-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .customer-details {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .notes {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Sua Cartela Individual</h1>
+            <p>Olá {{customer_name}}, sua cartela está pronta!</p>
+        </div>
+
+        <div class="card-info">
+            <h2>📋 Informações da Cartela</h2>
+            <div class="card-number">#{{card_number}}</div>
+            <p><strong>Edição:</strong> {{edition_number}}</p>
+            <p><strong>Data de Criação:</strong> {{created_date}}</p>
+        </div>
+
+        <div class="customer-details">
+            <h3>👤 Seus Dados</h3>
+            <p><strong>Nome:</strong> {{customer_name}}</p>
+            <p><strong>CPF:</strong> {{customer_cpf}}</p>
+            <p><strong>Contato:</strong> {{customer_contact}}</p>
+        </div>
+
+        {% if notes %}
+        <div class="notes">
+            <h3>📝 Observações</h3>
+            <p>{{notes}}</p>
+        </div>
+        {% endif %}
+
+        <div style="text-align: center;">
+            <p><strong>📎 Anexo:</strong> Sua cartela individual está anexada a este email.</p>
+            <p>📱 Em caso de dúvidas, entre em contato conosco.</p>
+        </div>
+
+        <div class="footer">
+            <p>© {{year}} Sistema de Vendas - Cartelas Individuais</p>
+            <p>Este é um email automático, não responda a esta mensagem.</p>
+        </div>
+    </div>
+</body>
+</html>
