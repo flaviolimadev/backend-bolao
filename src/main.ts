@@ -5,10 +5,14 @@ import { AppModule } from './app.module';
 import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { DataSource } from 'typeorm';
+import { ConfigService } from '@nestjs/config';
 import * as express from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
+  // Obter ConfigService para acessar variáveis de ambiente
+  const configService = app.get(ConfigService);
   
   // Configurar limite de tamanho para uploads
   app.use(express.json({ limit: '10mb' }));
@@ -21,7 +25,7 @@ async function bootstrap() {
     crossOriginResourcePolicy: { policy: 'cross-origin' },
   }));
   app.enableCors({
-    origin: process.env.FRONTEND_URL,
+    origin: configService.get('FRONTEND_URL'),
     credentials: true,
     methods: ['GET','HEAD','PUT','PATCH','POST','DELETE','OPTIONS'],
     allowedHeaders: ['Content-Type','Authorization'],
@@ -45,6 +49,6 @@ async function bootstrap() {
     process.exit(1); // opcional: falhar o boot se migration falhar
   }
 
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(configService.get('PORT') || 3000);
 }
 bootstrap();

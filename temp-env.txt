@@ -1,0 +1,52 @@
+# ========================================
+# CONFIGURAÇÕES DO BACKEND - SISTEMA DE VENDAS
+# ========================================
+
+# ========================================
+# APLICAÇÃO
+# ========================================
+NODE_ENV=development
+PORT=3003
+
+# ========================================
+# DATABASE (PostgreSQL)
+# ========================================
+DB_HOST=108.181.224.233
+DB_PORT=5433
+DB_USERNAME=postgres
+DB_PASSWORD=AUD45hW9SUWEGXqr3CgwuNqkONpnAN3urtZpH0A6D4cym50AtNXm17PzBgNsnP0y
+DB_DATABASE=postgres
+
+# ========================================
+# JWT (Autenticação)
+# ========================================
+JWT_SECRET=df17673d95b54e7758aa41927fdeed90d93edfd28404796856d89512ec52b37a
+JWT_EXPIRES_IN=15m
+JWT_REFRESH_SECRET=dce9e19604d1feae45a0ecff8aaee6544d659710dbc9ab7d6f10a527c7191357
+JWT_REFRESH_EXPIRES_IN=7d
+
+# ========================================
+# URLs
+# ========================================
+FRONTEND_URL=http://localhost:8080
+APP_PUBLIC_URL=http://localhost:8080
+
+# ========================================
+# EMAIL (Resend)
+# ========================================
+RESEND_API_KEY=re_Qwtr2hYo_8z8x2mVrRH4M4aYczGGDqHgM
+MAIL_FROM=Seu App <no-reply@ctrlser.com>
+
+# ========================================
+# CONFIGURAÇÕES DE EMAIL
+# ========================================
+VERIFIED_EMAIL=true
+PASSWORD_RESET_EXPIRES_MIN=30
+
+# ========================================
+# CLOUDFLARE R2 (S3 compatível)
+# ========================================
+CLOUDFLARE_ACCOUNT_ID=8c28a2e53f4aad52806c9d5cda9196b7
+CLOUDFLARE_ACCESS_KEY_ID=11b944c196dafd6b10156d86c3fc3878
+CLOUDFLARE_SECRET_ACCESS_KEY=4a1856ee8d784c00354296b84fb90a80de687aa1134c04d3ad17c1bdac516c24
+CLOUDFLARE_R2_BUCKET_NAME=sistemabolao

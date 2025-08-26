@@ -2,6 +2,11 @@ import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import * as dotenv from 'dotenv';
+
+// FORÇAR CARREGAMENTO DO .ENV ANTES DE TUDO
+dotenv.config();
+
 import appConfig from './config/app.config';
 import dbConfig from './config/database.config';
 import { envValidationSchema } from './config/validation.schema';
@@ -37,6 +42,14 @@ import { HealthModule } from './modules/health/health.module';
           autoLoadEntities: true,
           synchronize: false,                // nunca em prod
           logging: false,
+          
+          // Configurações de SSL e conexão
+          ssl: false, // Desabilitar SSL para conexão local
+          extra: {
+            connectionTimeoutMillis: 30000,
+            query_timeout: 30000,
+            statement_timeout: 30000,
+          },
 
           // 👇 importante: caminhos das migrations
           migrations: [
