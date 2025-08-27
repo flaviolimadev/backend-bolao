@@ -36,6 +36,14 @@ async function bootstrap() {
   const swagger = new DocumentBuilder().setTitle('Base Backend').setVersion('1.0.0').build();
   SwaggerModule.setup('/docs', app, SwaggerModule.createDocument(app, swagger));
 
+  // Resposta 200 em "/" para plataformas que fazem healthcheck na raiz
+  try {
+    const http = (app.getHttpAdapter() as any).getInstance?.() || (app as any);
+    if (http?.get) {
+      http.get('/', (_req: any, res: any) => res.status(200).send('OK'));
+    }
+  } catch {}
+
   // 👇 executa migrations programaticamente
   const dataSource = app.get(DataSource);
   try {
@@ -50,6 +58,7 @@ async function bootstrap() {
     process.exit(1); // opcional: falhar o boot se migration falhar
   }
 
-  await app.listen(configService.get('PORT') || 3000);
+  const port = Number(configService.get('PORT')) || 3000;
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();
